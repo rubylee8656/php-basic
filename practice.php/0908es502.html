@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // ES5 類別定義方式
+        function Person(name, age) {
+            this.gender = 'male';
+            this.name = name || 'john';
+            this.age = age || 18;
+            /*
+            this.toString = function(){
+                return JSON.stringify({
+                    name: this.name, 
+                    age: this.age, 
+                    gender: this.gender
+                });
+            }
+            */
+        }
+
+        const p1 = new Person('david', 25);
+        p1.data = 'abc';
+        console.log(p1.name);
+        console.log(p1.age);
+        console.log(p1.gender);
+        console.log(p1.data);
+        console.log(p1);
+        console.log('' + p1);
+        console.log(p1.toString());
+        Person.aaa = function(){
+            return 12;
+        };
+        console.log(Person.aaa());
+
+        // 原型鏈
+        Person.prototype.toString = function(){
+            return JSON.stringify({
+                name: this.name, 
+                age: this.age, 
+                gender: this.gender
+            });
+        };
+        console.log(p1.toString());
+    </script>
+</body>
+
+</html>

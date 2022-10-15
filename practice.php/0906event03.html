@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn" onclick="console.log(event)">click</button>
+
+    <script>
+        //onclick 處理器對像只有一個
+        const btn = document.querySelector('btn');
+        btn.onclick = function(){
+            console.log('說你好');
+        };
+        const handler = ()=>console.log('test');
+
+        //addEventListener處理器對象可以一對多 或多對一
+        //log 相當於new一個function 
+        btn.addEventListener('click',()=>console.log(1));
+        btn.addEventListener('click',()=>console.log(2));
+        //如果參數是reference 相當於1個個體 那addEventListener處理器對像只有一個
+        btn.addEventListener('click',handler);
+        btn.addEventListener('click',handler);
+        btn.addEventListener('click',handler);
+    </script>
+</body>
+</html>

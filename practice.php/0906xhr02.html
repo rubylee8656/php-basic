@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="loadData(event)">load</button> <!--實際參數-->
+    <div id="info"></div>
+
+    <script>
+        function loadData(e){  //形式參數
+            const xhr = new XMLHttpRequest;  //個體 實體 instance
+            xhr.onload = function(){
+                console.log(1);
+                document.querySelector('#info').innerHTML = xhr.responseText;
+            };
+            //open 就是 設定 發request的方法
+            console.log(2);
+            xhr.open('GET','./../data/data01.txt');
+            xhr.send();
+            console.log(3);
+            // log 結果是 231 因為非同步
+
+            // AJAX 一定要在http or https 的環境下執行
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
